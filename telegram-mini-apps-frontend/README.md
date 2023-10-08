@@ -1,37 +1,7 @@
-# Telegram MINI-APPs
-Project combine several simple application what can be run inside telegram app
-
-Main idea: you can combine different but logic-grouped bots in one super-app and call by different command.
-All will work at one server.
-
-Telegram apps its sites but work like in inframe and have additional API methods
+# Telegram MINI-APP
 
 TODO add schema png
-
-## Stack for backend:
-- NestJS (TypeScript)
-- nestjs-telegraf (TypeScript)
-
-## BACKEND Manage 
-> installation
-```bash
-npm ci
-```
-
-> build
-```bash
-npm run build
-```
-
-> production start
-```bash
-npm run start
-```
-
-> development start
-```bash
-npm run start:dev
-```
+https://ngrok.com/
 
 ## Stack for frontend:
 - ReactJS (TypeScript)
@@ -53,39 +23,20 @@ npm run build
 npm run start
 ```
 
-## Telegram Manage
-- create new own bot by telegram official @BotFather 
-- get token
-- paste an backend module.ts
+# BONUS
+List of ideas for update current app and create new applications:
 
-## Deploy
-To start your application you need to run backend and frontend both on server.
-- clone repository by command:
-``` bash
-git clone ...
-```
-- manage it to build stage
-- run backend first
-- run frontend
+Random-Movie App updates
+- expand the list of the movies
+- connect API to get fresh list of movies from different providers
+- add history if some user press button but want to get back to previous option
+- add more buttons what includes random books, series, tv-shows
 
 
-# List of frontend applications
-
-### TODO App
-You can store and control list of **to do** things 
-
-### Random-Movie App
-Choose random movie to watch today (do not forget to add it into TODO list)
-
-### Random-Movie App
-
-### GameChanger App
-Use your location to place the game bosses
-
-### StayRecord App
-Bit the record of the one place standing by your geo-location
-
-### MassMatter
-
-### GeoSyncMusic
-
+Other applications:
+- TODO list what store data inside chat
+- Store, what search goods by QR-code
+- Game runner, what provide random game each day
+- Auth app, what provide to register on other platforms by telegram account
+- Chat RPG, where users fight together against chat bosses
+- Realtime market trend graphics (also crypto)

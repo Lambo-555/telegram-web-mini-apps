@@ -1,24 +1,17 @@
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import { MainButton, useShowPopup } from "@vkruglikov/react-telegram-web-app";
+import {
+  MainButton,
+  useShowPopup,
+  useThemeParams,
+} from "@vkruglikov/react-telegram-web-app";
 
 function App() {
-  const showPopup = useShowPopup();
-
-  const handleClick = () =>
-    showPopup({
-      message: "Hello, I am popup",
-    });
-
-  return <MainButton text="SHOW POPUP" onClick={handleClick} />;
-
-  const [list, setList] = useState<
-    {
-      title: string;
-      year: number;
-      url: string;
-    }[]
-  >([
+  const movieList: {
+    title: string;
+    year: number;
+    url: string;
+  }[] = [
     {
       url: "https://m.media-amazon.com/images/M/MV5BMTcyMjdlYmUtNjQ1Zi00YTg3LTliNTgtZmNkOTRmYzEzYTMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
       year: 2000,
@@ -69,7 +62,7 @@ function App() {
       year: 2018,
       title: "Spider-Man: Een nieuw universum",
     },
-  ]);
+  ];
 
   const [movie, setMovie] = useState<{
     title: string;
@@ -81,25 +74,48 @@ function App() {
     title: "Torn Curtain",
   });
 
+  // will show native Telegram popup
+  const showPopup = useShowPopup();
+  
+  // get theme data from user current Telegram settings
+  const themeData = useThemeParams();
+
+  // on click button inside telegram the function bellow will be handled
+  const handleClickMainButton = async () => {
+    showPopup({
+      title: "About",
+      message: "App provide random movies from 'best movies' list",
+    });
+  };
+
   const getRandomMovie = () => {
-    const randomId: number = Math.floor(Math.random() * list.length);
-    if (list[randomId].title === movie.title) {
+    const randomId: number = Math.floor(Math.random() * movieList.length);
+    if (movieList[randomId].title === movie.title) {
       getRandomMovie();
     } else {
-      setMovie(list[randomId]);
+      setMovie(movieList[randomId]);
     }
   };
 
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={movie.url} />
+    <Card style={{ width: "100%", backgroundColor: themeData[1].bg_color }}>
       <Card.Body>
         <Card.Title>Title: {movie.title}</Card.Title>
         <Card.Text>Year: {movie.year}</Card.Text>
-        <Button variant="primary" onClick={getRandomMovie}>
-          Select another random movie!
+        <Button
+          variant="primary"
+          onClick={getRandomMovie}
+          style={{
+            backgroundColor: themeData[1].button_color,
+            color: themeData[1].button_text_color,
+            border: "none",
+          }}
+        >
+          Show me random movie!
         </Button>
+        <MainButton text="Show about info" onClick={handleClickMainButton} />
       </Card.Body>
+      <Card.Img variant="bottom" src={movie.url} />
     </Card>
   );
 }
