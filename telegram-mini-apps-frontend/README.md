@@ -1,12 +1,9 @@
 # Telegram MINI-APP
 
-TODO add schema png
-https://ngrok.com/
-
 ## Stack for frontend:
-- ReactJS (TypeScript)
-- react-bootstrap (CSS components and styles)
-- telegram-webapps-types (for development only)
+- [ReactJS (TypeScript)](https://www.npmjs.com/package/react) 
+- [react-bootstrap (CSS components and styles)](https://react-bootstrap.netlify.app/)
+- [telegram-webapps-types (for development only)](https://github.com/prKassad/telegram-webapps-types)
 
 
 ## FRONTEND Manage 

@@ -1,6 +1,11 @@
-# telegram-web-mini-apps
+# telegram-web-mini-app
 Telegram apps it's sites but work like in inframe and have additional web-api methods.
 So we need frontend app and backend server for get updates from Telegram bot.
+
+# Instructions
+[FrontEnd README](./telegram-mini-apps-frontend/README.md)
+
+[BackEnd README](./telegram-mini-apps-backend/README.md)
 
 ## Development
 You can develop backend and frontend on one devise.
@@ -12,3 +17,4 @@ Start frontend. It will start on 3000 port. But for now its now available from e
 - call **ngrok http 3000**
 - you will receive Forwarding address like this https://396c-78-37-196-202.ngrok-free.app
 - now anyone can access your frontend, so use the address for development! WARNING! Address will changed then ngrok will be restarted
+
